@@ -3,13 +3,11 @@ doc: NOW
 audience: [human, agent]
 status: living
 owner: product
-last_reviewed: 2026-07-30
+last_reviewed: 2026-08-02
 ---
 
 # Now
 
 Active work — this sprint or week. Keep to **1–3 items**.
 
-- [ ] Build AI Memory MVP
-- [ ] Write RFC-0001
-- [ ] Define data model
+- [ ] Implement AI Memory MVP: parser → indexer → storage → search (design done: RFC-0001, architecture, domain model, database, CLI)
