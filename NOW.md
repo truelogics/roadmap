@@ -76,6 +76,40 @@ bar for calling this a platform rather than an application.
 
 ---
 
+## Sprint 9 — Evidence Capability (complete)
+
+Evidence verification, excerpt normalization and confidence scoring
+promoted from AI Review's Validator into `pkg/memory` (ai-memory
+RFC-0006), requested independently by two consumers. AI Review's
+duplicate is deleted, not wrapped; `engineering-mcp` exposes
+`verify_evidence`. Four transport-independent capabilities now exist.
+
+The first platform measurement also ran — Claude Code with and without
+engineering-mcp, which needs no Anthropic credit — and **found no
+difference**. Seven correctly-scoped rules came back; none governed the
+defect. Recorded in `ai-review/docs/reports/REVIEW_QUALITY_LOG.md`.
+
+## Sprint 10 — Decision Support Experiment (design complete, not built)
+
+The Sprint 9 result disproved a narrow hypothesis: *scoped rules plus
+lexical ranking are sufficient*. It did not show the platform is
+unhelpful.
+
+[`engineering/DECISION_SUPPORT.md`](https://github.com/truelogics/engineering/blob/main/DECISION_SUPPORT.md)
+places the boundary before any code: the platform answers questions
+about what is written down; reasoning answers questions about what is
+happening. Prioritization splits across it — the *signals* are platform,
+the *policy* weighing them is consumer.
+
+**Next, and only this:** run the three-arm experiment (no context /
+all scoped rules / prioritized rules) with prioritization implemented
+**inside a consumer**, since Rule #6 forbids inventing it at the
+transport. Falsifiable prediction stated in the document.
+
+Not building the layer until that answers yes.
+
+---
+
 **Deferred from Sprint 7:** the Workspace Model RFC, for what genuinely remains — a
 first-class `workspaces` table and named workspaces, repository
 priority, rules-only repositories, and `applies_to`-scoped rule lookup
