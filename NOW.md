@@ -27,7 +27,7 @@ Future integrations (Claude Code, MCP, GitHub, VS Code, Cursor, CI)
 remain out of scope until AI Review is proven through benchmarks and
 real-world usage.
 
-## Sprint 7 — Workspaces (in progress)
+## Sprint 7 — Workspaces (complete)
 
 **Goal:** enable one Engineering OS workspace to contain multiple
 repositories, so a repository-specific review is grounded in shared
@@ -55,7 +55,28 @@ multi-repository workspaces had no CLI surface, so nobody built one.
   `rules/no-silent-fallback.md` — the rule governing the file under
   review — from the other repository. `Rules: 0` → `Rules: 3`.
 
-**Next:** the Workspace Model RFC, for what genuinely remains — a
+## Sprint 8 — Engineering MCP (complete)
+
+`engineering-mcp` ships: the second consumer of AI Memory, exposing
+proven capabilities over the Model Context Protocol. Three tools —
+`search_memory`, `get_context`, `find_engineering_rules` — each already a
+validated capability inside a real consumer (KERNEL_POLICY Rule #6).
+
+Two of the five proposed tools were rejected by that rule and are
+documented rather than built: `collect_evidence` (verification lives
+inside AI Review's Validator, not the kernel) and
+`get_architecture_context` (the public surface collapses architecture
+with four other document classes, so the name would overclaim).
+
+Named for the transport, not "server": MCP today, HTTP or gRPC later
+over the same adapters.
+
+**Two unrelated consumers now build on the same kernel.** That was the
+bar for calling this a platform rather than an application.
+
+---
+
+**Deferred from Sprint 7:** the Workspace Model RFC, for what genuinely remains — a
 first-class `workspaces` table and named workspaces, repository
 priority, rules-only repositories, and `applies_to`-scoped rule lookup
 (`KERNEL_REQUIREMENTS.md` #6, now evidence-backed: the first rule ever
