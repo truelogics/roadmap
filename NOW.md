@@ -12,19 +12,19 @@ last_reviewed: 2026-08-09
 
 The current objective is **not** to build more features.
 
-The objective is to validate AI Review as the first production-quality
-consumer of AI Memory.
+The objective is to validate Engineering Review as the first production-quality
+consumer of Engineering Kernel.
 
 Current priorities:
 
 1. Improve review quality.
 2. Improve evidence quality.
 3. Expand benchmark coverage.
-4. Dogfood AI Review daily.
+4. Dogfood Engineering Review daily.
 5. Reach the first public alpha.
 
 Future integrations (Claude Code, MCP, GitHub, VS Code, Cursor, CI)
-remain out of scope until AI Review is proven through benchmarks and
+remain out of scope until Engineering Review is proven through benchmarks and
 real-world usage.
 
 ## Sprint 7 — Workspaces (complete)
@@ -50,21 +50,21 @@ multi-repository workspaces had no CLI surface, so nobody built one.
 - `FileContext`/`SearchResult` carry `Repository`, so a path is
   attributable when two repositories share it
 - `.eng.yaml` gains `review.workspace`
-- **Category B proven end to end:** a review of `ai-review` against a
-  workspace holding `ai-review` and `engineering` retrieves
+- **Category B proven end to end:** a review of `engineering-review` against a
+  workspace holding `engineering-review` and `engineering` retrieves
   `rules/no-silent-fallback.md` — the rule governing the file under
   review — from the other repository. `Rules: 0` → `Rules: 3`.
 
 ## Sprint 8 — Engineering MCP (complete)
 
-`engineering-mcp` ships: the second consumer of AI Memory, exposing
+`engineering-mcp` ships: the second consumer of Engineering Kernel, exposing
 proven capabilities over the Model Context Protocol. Three tools —
 `search_memory`, `get_context`, `find_engineering_rules` — each already a
 validated capability inside a real consumer (KERNEL_POLICY Rule #6).
 
 Two of the five proposed tools were rejected by that rule and are
 documented rather than built: `collect_evidence` (verification lives
-inside AI Review's Validator, not the kernel) and
+inside Engineering Review's Validator, not the kernel) and
 `get_architecture_context` (the public surface collapses architecture
 with four other document classes, so the name would overclaim).
 
@@ -79,15 +79,15 @@ bar for calling this a platform rather than an application.
 ## Sprint 9 — Evidence Capability (complete)
 
 Evidence verification, excerpt normalization and confidence scoring
-promoted from AI Review's Validator into `pkg/memory` (ai-memory
-RFC-0006), requested independently by two consumers. AI Review's
+promoted from Engineering Review's Validator into `pkg/memory` (engineering-kernel
+RFC-0006), requested independently by two consumers. Engineering Review's
 duplicate is deleted, not wrapped; `engineering-mcp` exposes
 `verify_evidence`. Four transport-independent capabilities now exist.
 
 The first platform measurement also ran — Claude Code with and without
 engineering-mcp, which needs no Anthropic credit — and **found no
 difference**. Seven correctly-scoped rules came back; none governed the
-defect. Recorded in `ai-review/docs/reports/REVIEW_QUALITY_LOG.md`.
+defect. Recorded in `engineering-review/docs/reports/REVIEW_QUALITY_LOG.md`.
 
 ## Sprint 10 — Decision Support Experiment (design complete, not built)
 
@@ -122,10 +122,10 @@ Then resume Sprint 6: review quality, benchmarks, dogfooding.
 
 Active work — this sprint or week. Keep to **1–3 items**.
 
-- [ ] Write `ai-review`'s documentation (vision, architecture, kernel
+- [ ] Write `engineering-review`'s documentation (vision, architecture, kernel
       requirements) — no code yet, deliberately. Its gap list becomes AI
       Memory's next real milestones instead of speculative ones. AI
       Memory's kernel itself (indexing, hybrid search, graph, context
       assembly) is implemented and paused — external integrations
-      (plugins, HTTP API) are deferred until AI Review proves what's
+      (plugins, HTTP API) are deferred until Engineering Review proves what's
       actually needed.

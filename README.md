@@ -39,7 +39,7 @@ urgent” and keeps work moving through clear horizons.
 | [`MILESTONES.md`](MILESTONES.md) | Major outcomes + dates |
 | [`RELEASES.md`](RELEASES.md) | What shipped |
 
-**Now:** AI Memory MVP · RFC-0001 · data model  
+**Now:** Engineering Kernel MVP · RFC-0001 · data model  
 **Next:** AI Context Engine · Engineering Rules  
 **Backlog:** Agent Runtime · MCP Toolkit · Product Brain
 
